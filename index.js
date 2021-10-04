@@ -4,13 +4,13 @@ const app = express();
 require('./api/db/dbconnection');
 
 
-const studentRoutes = require('./api/routes/studentRoute');
-const courseRoutes = require('./api/routes/courseRoute'); 
+const shoppingRoutes = require('./api/routes/shoppingRoute');
+
 
 app.use(express.json());
 
-app.use('/api/students',studentRoutes);
-app.use('/api/students/:id/course',courseRoutes);
+app.use('/api/shopping',shoppingRoutes);
+
 
 const port = process.env.port || 3000;
 
