@@ -1,13 +1,13 @@
 {
-  "name": "ass-05-part-2",
+  "name": "My-Personal-Hobby-Project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Shopping project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Torab",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
