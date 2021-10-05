@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const schoolSchema = mongoose.Schema({
+const shoppingSchema = mongoose.Schema({
     item: {
         type:String,
         minlength: 3,
@@ -19,8 +19,16 @@ const schoolSchema = mongoose.Schema({
     deliveryDate:{
         type:Date,
         default:Date.now
+    },
+
+    item_specification: {
+        munifacturer: String,
+        weight: String, 
+        color:String
     }
+
+
 });
 
-mongoose.model('Shopping',schoolSchema,'shoppings');
+mongoose.model('Shopping',shoppingSchema,'shoppings');
 

@@ -1,19 +1,20 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 
 require('./api/db/dbconnection');
 
 
-const shoppingRoutes = require('./api/routes/shoppingRoute');
+const shoppingRoutes = require('./api/routes/itemRoute');
 
 
 app.use(express.json());
 
-app.use('/api/shopping',shoppingRoutes);
+app.use('/api/item',shoppingRoutes);
 
 
 const port = process.env.port || 3000;
 
-app.listen(port,function(){
-    console.log(`Server is running at port: ${port}`);
+server = app.listen(port,function(){
+    console.log(`Server is running at port: ${server.address().port}`);
 });

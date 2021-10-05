@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Shopping = mongoose.model("Shopping");
 
-getAll = function (req, res) {
+const getAll = function (req, res) {
   let offset = 0;
   let count = 5;
 
@@ -23,7 +23,7 @@ getAll = function (req, res) {
     });
 };
 
-getOne = function (req, res) {
+const getOne = function (req, res) {
   const checkID = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!checkID) {
     res.status(400).json({ message: "invalid ID has been provided" });
@@ -44,7 +44,7 @@ getOne = function (req, res) {
   });
 };
 
-addOne = function (req, res) {
+const addOne = function (req, res) {
   if (Object.keys(req.body).length == 0) {
     res.status(400).json({ message: "Please provide body data" });
     return;
@@ -67,7 +67,7 @@ addOne = function (req, res) {
   });
 };
 
-deleteOne = function (req, res) {
+const deleteOne = function (req, res) {
   const checkSID = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!checkSID) {
     res.status(400).json({ message: "Invalid ID..." });
@@ -89,7 +89,7 @@ deleteOne = function (req, res) {
   });
 };
 
-updateOne = function (req, res) {
+const updateOne = function (req, res) {
   const checkSID = mongoose.Types.ObjectId.isValid(req.params.id);
 
   if (!checkSID) {

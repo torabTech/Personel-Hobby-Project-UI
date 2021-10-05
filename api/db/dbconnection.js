@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-require('../model/shopingSchema');
+require('../model/itemSchema');
 
 
 mongoose.connect('mongodb://localhost/shopingDB')
