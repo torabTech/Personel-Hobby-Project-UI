@@ -22,7 +22,8 @@ function Registeration(UserFactory,$route){
             gender : gender,
         }
     
-        console.log(data)
+        console.log(data);
+
         UserFactory.addUser(data).then(function(response){
             console.log(response);
            // window.location.href = '/';
@@ -36,6 +37,16 @@ function Registeration(UserFactory,$route){
             console.log(response);
             vm.users = response;
         });
+    }
+
+    vm.delete = function(id){
+        if(confirm('Do you want to delete user?')){
+            UserFactory.deleteUser(id).then(function(response){
+                console.log(response);
+                $route.reload();
+            })
+        }
+        
     }
     
 }
