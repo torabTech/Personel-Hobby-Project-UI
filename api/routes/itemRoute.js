@@ -19,6 +19,8 @@ router.route('/:id/specs')
     .post(specsController.addOne)
     .delete(specsController.deleteOne)
     .put(specsController.updateOne);
+
+router.route('/search/:value').get(controller.getByName);
     
 
 module.exports = router;

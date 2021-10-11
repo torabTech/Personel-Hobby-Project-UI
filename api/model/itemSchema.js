@@ -12,23 +12,32 @@ const shoppingSchema = mongoose.Schema({
         min:0,
         default:0
     },
-    orderDate:{
+    stockQty:{
+        type:Number,
+        default:0
+    },
+    regDate:{
         type:Date,
         default:Date.now
     },
-    deliveryDate:{
-        type:Date,
-        default:Date.now
+    unit: {
+        type: String,
+        enum: ['pcs','kg','pnd','lb','inch','cm','mt','can','pkg'],
+        default : 'pcs'
     },
-
     item_specification: {
         munifacturer: String,
         weight: String, 
-        color:String
+        color:String,
+        image:{
+            type:String,
+            default:'app/assets/images/default.png'
+        },
+        description:String
     }
 
 
 });
 
-mongoose.model('Shopping',shoppingSchema,'shoppings');
+mongoose.model('Shopping',shoppingSchema,'items');
 

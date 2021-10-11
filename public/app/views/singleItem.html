@@ -1,0 +1,45 @@
+<div class="card border-light mb-3" >
+    <div class="card-header">Single Item Details</div>
+    <div class="card-body">
+        <h4 class="card-title">{{vm.item.item}}</h4>
+        
+
+        <p>
+            <strong>Item-Price</strong> 
+            {{vm.item.price}}
+        </p>
+
+        <p>
+            <strong>Stock-Quantity</strong> 
+            {{vm.item.stockQty}}
+        </p>
+
+        <p>
+            <strong>Reg-Date</strong> 
+            {{vm.item.regDate | date}}
+        </p>
+
+        <p>
+            <strong>Item-Unig</strong> 
+            {{vm.item.unit}}
+        </p>
+
+        <p>
+            <strong>Item-Munifacturer</strong> 
+            {{vm.item.item_specification.munifacturer}}
+        </p>
+        <p>
+            <strong>Item-Color</strong> 
+            {{vm.item.item_specification.color}}
+        </p>
+
+        <p>
+            <strong>Item-Description</strong> 
+            {{vm.item.item_specification.description}}
+        </p>
+          
+            
+
+        
+    </div>
+</div>

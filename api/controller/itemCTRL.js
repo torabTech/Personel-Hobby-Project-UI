@@ -3,7 +3,7 @@ const Shopping = mongoose.model("Shopping");
 
 const getAll = function (req, res) {
   let offset = 0;
-  let count = 5;
+  let count = 10;
 
   if (req.query && req.query.offset) offset = parseInt(req.query.offset);
   if (req.query && req.query.count) count = parseInt(req.query.count);
@@ -44,6 +44,25 @@ const getOne = function (req, res) {
   });
 };
 
+
+const getByName = function (req, res) {
+  const val = req.params.value;
+  console.log(`reached ${val}`);
+ 
+  Shopping.find({ "item" : { $regex: ".*" + val + ".*", $options: 'i' } }).exec(function (err, data) {
+    if (err) {
+      res.status(500).json(err.message);
+      return;
+    }
+
+    if (!data) {
+      res.status(404).json({ message: "Item Not Found!.." });
+      return;
+    }
+    res.status(200).json(data);
+  });
+};
+
 const addOne = function (req, res) {
   if (Object.keys(req.body).length == 0) {
     res.status(400).json({ message: "Please provide body data" });
@@ -53,8 +72,14 @@ const addOne = function (req, res) {
   const data = {
     item: req.body.item,
     price: req.body.price,
-    orderDate: req.body.orderDate,
-    deliveryDate: req.body.deliveryDate,
+    stockQty: req.body.stockQty,
+    unit: req.body.unit,
+    item_specification: {
+      munifacturer: req.body.munifacturer,
+      weight: req.body.weight,
+      color: req.body.color,
+      description: req.body.description,
+    },
   };
 
   Shopping.create(data, function (err, result) {
@@ -107,8 +132,14 @@ const updateOne = function (req, res) {
       $set: {
         item: req.body.item,
         price: req.body.price,
-        orderDate: req.body.orderDate,
-        deliveryDate: req.body.deliveryDate,
+        stockQty: req.body.stockQty,
+        unit: req.body.unit,
+        item_specification: {
+          munifacturer: req.body.munifacturer,
+          weight: req.body.weight,
+          color: req.body.color,
+          description: req.body.description,
+        },
       },
     },
     function (err, result) {
@@ -128,4 +159,5 @@ module.exports = {
   addOne: addOne,
   deleteOne: deleteOne,
   updateOne: updateOne,
+  getByName : getByName
 };

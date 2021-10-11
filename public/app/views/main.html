@@ -1,0 +1,56 @@
+
+
+<div style="float: left; margin-top: 5px;">
+
+  <form class="d-flex" ng-submit="vm.search(value)">
+    <input class="form-control me-sm-2" type="text" placeholder="Search" ng-model='value' ng-change='vm.detectEmpty(value)' required>
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  
+</div>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock-QTY</th>
+        <th scope="col">Reg-Date</th>
+        <th scope="col">Image</th>
+        <th>
+          <input type="text" style="float: right; background-color: black; color: aliceblue;" placeholder="Filter By Name" ng-model='search.item'>
+        
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active" ng-repeat="e in vm.items | filter:search">
+        <th scope="row">{{e.item}}</th>
+        <td>{{e.price}}</td>
+        <td>{{e.stockQty}}</td>
+        <td>{{e.regDate | date}}</td>
+        <td>{{e.item_specification.image}}</td>
+        <td>
+           
+       
+            <a ng-href="#!/editItem/{{e._id}}" type="button"  class="btn btn-outline-primary btn-sm" > <i class="bi bi-pencil" ></i></a>
+            <a ng-href="#!/item/{{e._id}}" type="button" class="btn btn-outline-dark btn-sm" ><i class="bi bi-binoculars"></i></a>
+            <button  type="button" class="btn btn-outline-danger btn-sm" ng-click="vm.delete(e._id)" ><i class="bi bi-trash"></i></button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <div>
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" ng-href="#">&laquo;</a>
+      </li>
+      
+      <li class="page-item">
+        <a class="page-link" ng-href="#">&raquo;</a>
+      </li>
+    </ul>
+  </div>
+  
+  

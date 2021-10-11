@@ -1,0 +1,99 @@
+<div ng-init='vm.showItem()' style="margin-bottom: 20px;">
+    <form ng-submit="vm.updateItem()">
+        <fieldset>
+            <legend>Update Item</legend>
+
+            <div class="form-group">
+                <label for="name" class="form-label mt-4">Item-Name</label>
+                <input type="text" class="form-control" id="itemname"
+                    placeholder="Item-Name" ng-model='vm.item' required value="vm.item">
+            </div>
+
+            <div class="form-group">
+                <label for="name" class="form-label mt-4">Item-Price</label>
+                <input type="number" min="0" max="10000" class="form-control"
+                    id="price" placeholder="Item-Price" ng-model='vm.price' value="vm.price">
+            </div>
+
+            <div class="form-group">
+                <label for="name" class="form-label mt-4">Item-QTY</label>
+                <input type="number" min="1" max="1000" class="form-control"
+                    id="price" placeholder="Item-Quantity"
+                    ng-model='vm.stockQty' value="vm.stockQty">
+            </div>
+
+            <div class="form-group">
+                <label for="unit" class="form-label mt-4"> Unit-Type</label>
+                <select class="form-select" ng-model="vm.unit" >
+                    <option select value='pcs'>Peice</option>
+                    <option value='kg'>Killo-Gram</option>
+                    <option value='pnd'>Pound</option>
+                    <option value='inc'>Inch</option>
+                    <option value='cm'>Centimeter</option>
+                    <option value='mt'>Meter</option>
+                    <option value='can'>Can</option>
+                    <option value='pkg'>Package</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <legend class="mt-4">Further Specs</legend>
+
+        <div class="form-group">
+            <label for="unit" class="form-label mt-4"> Munifacturer</label>
+            <select class="form-select" ng-model="vm.munifacturer">
+                <option selected value='dell'>Dell</option>
+                <option value='apple'>Apple</option>
+                <option value='samsung'>Samsung</option>
+                <option value='lg'>LG</option>
+                <option value='motrolla'>Motrolla</option>
+                <option value='nec'>NEC</option>
+            </select>
+        </div>
+
+        <legend class="mt-4">Item-Color</legend>
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input"
+                    name="optionsRadios" value="black" 
+                    ng-model='vm.colorBlack' checked>
+                Black
+            </label>
+        </div>
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input"
+                    name="optionsRadios" value="silver" checked=""
+                    ng-model='vm.colorSilver'>
+                Silver
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input"
+                    name="optionsRadios" value="white" checked=""
+                    ng-model='vm.colorWhite'>
+                White
+            </label>
+        </div>
+
+    <div class="form-group">
+        <label for="name" class="form-label mt-4">Item-Weight</label>
+        <input type="text" class="form-control"
+            id="price" placeholder="Item-Weight" ng-model='vm.weight' required value="vm.weight">
+    </div>
+
+    <div class="form-group">
+        <label for="descrition" class="form-label mt-4">Description</label>
+        <textarea class="form-control" id="description" rows="3"
+            ng-model='vm.description' >{{vm.description}}</textarea>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-dark">Update</button>
+    <br>
+</form>
+    
+</div>
